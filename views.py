@@ -1,12 +1,10 @@
 # coding:utf-8
 
-import os
-import json
+import os, json, sqlite3
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-
-
 from my_api.invoke_api import invoke_api
+
 
 app = Flask(__name__)
 

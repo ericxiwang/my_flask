@@ -1,6 +1,6 @@
 # coding:utf-8
-import requests
-
+import requests, sqlite3
+from flask import g
 import json
 import os
 
@@ -9,10 +9,17 @@ class invoke_api:
 
 
     def __init__(self):
+
+        self.conn = sqlite3.connect('database.db')
+
+
+
+
         self.api_key = "1e4491f9ec697e92d199d46dcb4257e4eb8630579c7fe2d958a90b6139e52271"
         self.upload_url = "https://www.virustotal.com/vtapi/v2/file/scan"
         self.rescan_url = "https://www.virustotal.com/vtapi/v2/file/rescan"
         self.report_url = "https://www.virustotal.com/vtapi/v2/file/report"
+
 
     def upload_file(self, file_name):
 
